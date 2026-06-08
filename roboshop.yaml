@@ -52,10 +52,9 @@
     amazon.aws.route53:
       state: "absent"
       zone: "{{ domain_name }}"
-      record: "{{ item.item }}.{{ domain_name }}"
+      record: "{{ item}}.{{ domain_name }}"
       type: A
       ttl: 1
-      value: "{{ item.instances[0].private_ip_address }}"
     loop: "{{ instances }}"
     when:
     - action_type == "destroy"
@@ -67,7 +66,6 @@
       record: "{{ domain_name }}"
       type: A
       ttl: 1
-      value: "{{ item.instances[0].public_ip_address }}"
     loop: "{{ instances }}"
     when:
     - action_type == "destroy"
