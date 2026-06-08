@@ -1,5 +1,5 @@
 - name: configuring user server 
-  host: user
+  hosts: user
   become: yes
   tasks:
   - name: enable nodejs 20
