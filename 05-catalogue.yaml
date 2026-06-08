@@ -51,10 +51,11 @@
     package:
       name: mongodb-mongosh
       state: present
-  - name: Load products
-    community.mongodb.mongodb_shell:
-      file: "/app/db/master-data.js"
-      idempotent: yes
-      login_host: "{{ MONGODB_HOST }}"
+  - name: check catalogue schema exist or not
+    shell: mongosh --host "{{ MONGODB_HOST }}" --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+    register: catalogue_output
+  - name: Print catalogue output
+    debug:
+      msg: "{{ catalogue_output }}"
 
   # - name: start and enable service
