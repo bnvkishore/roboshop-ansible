@@ -4,8 +4,8 @@
   tasks:
   - name: copy rabbimq repo
     copy:
-      src: rabbimq.repo
-      dest: /etc/yum.repos.d/rabbimq.repo
+      src: rabbitmq.repo
+      dest: /etc/yum.repos.d/rabbitmq.repo
   - name: install rabbimq server
     package:
       name: rabbitmq-server
