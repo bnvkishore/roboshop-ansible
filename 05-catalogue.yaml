@@ -66,5 +66,8 @@
     when: catalogue_output.stdout | int < 0
     tags:
     - mongodb
-
-  # - name: start and enable service
+  - name: start and enable service
+    service:
+      name: catalogue
+      state: restarted
+      enabled: yes
