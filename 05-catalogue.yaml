@@ -57,4 +57,4 @@
       idempotent: yes
       login_host: "{{ MONGODB_HOST }}"
 
-  - name: start and enable service
+  # - name: start and enable service
