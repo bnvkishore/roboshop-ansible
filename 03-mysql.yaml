@@ -7,7 +7,7 @@
       name: mysql-server
       state: present
   - name: start and enable server
-    sevice:
+    service:
       name: mysqld
       state: started
       enable: yes
