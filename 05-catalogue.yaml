@@ -54,8 +54,12 @@
   - name: check catalogue schema exist or not
     shell: mongosh --host "{{ MONGODB_HOST }}" --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_output
+    tags:
+    - mongodb
   - name: Print catalogue output
     debug:
       msg: "{{ catalogue_output }}"
+    tags:
+    - mongodb
 
   # - name: start and enable service
