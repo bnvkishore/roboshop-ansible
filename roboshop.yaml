@@ -7,6 +7,9 @@
     image_id: ami-0220d79f3f480ecf5
     action_type: "create"
   tasks:
+  - name: debug action type
+    debug:
+      msg: "action type is:{{ action_type }}"
   - name: create ec2 instances
     amazon.aws.ec2_instance:
       name: "roboshop-{{ item }}"
@@ -55,7 +58,7 @@
       value: "{{ item.instances[0].private_ip_address }}"
     loop: "{{ instances }}"
     when:
-    - action_type == "destory"
+    - action_type == "destroy"
   
   - name: Delete route53 record for frontend
     amazon.aws.route53:
@@ -67,7 +70,7 @@
       value: "{{ item.instances[0].public_ip_address }}"
     loop: "{{ instances }}"
     when:
-    - action_type == "destory"
+    - action_type == "destroy"
     - item == "frontend"
 
   - name: destroy ec2 instances
@@ -75,4 +78,4 @@
       state: absent
       name: "roboshop-{{ item }}"
     loop: "{{ instances }}"
-    when: action_type == "destory"
+    when: action_type == "destroy"
