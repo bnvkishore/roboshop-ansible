@@ -6,6 +6,6 @@ CATALOGUE_HOST: catalogue.daws90.shop
 CART_HOST: cart.daws90.shop
 MYSQL_HOST: mysql.daws90.shop
 USER_HOST: user.daws90.shop
-RABBITMQ_HOST: rabbimq.daws90.shop
+RABBITMQ_HOST: rabbitmq.daws90.shop
 SHIPPING_HOST: shipping.daws90.shop
 PAYMENT_HOST: payment.daws90.shop

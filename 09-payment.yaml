@@ -2,7 +2,7 @@
   hosts: payment
   become: yes
   tasks:
-  - name: install pythong
+  - name: install python
     package:
       name: "{{ item }}"
       state: present
